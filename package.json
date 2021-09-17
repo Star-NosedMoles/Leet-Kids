@@ -1,5 +1,64 @@
 {
+  "name": "leet-kids",
+  "version": "1.0.0",
+  "description": "JS game for kids!",
+  "main": "index.js",
   "dependencies": {
-    "eslint": "^7.32.0"
-  }
+    "axios": "^0.21.4",
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.19.0",
+    "browserify": "^17.0.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.32.0",
+    "express": "^4.17.1",
+    "gulp": "^4.0.2",
+    "html-webpack-plugin": "^5.3.2",
+    "moment": "^2.29.1",
+    "mongodb": "^4.1.2",
+    "mongoose": "^6.0.5",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-axios": "^2.0.5",
+    "react-dom": "^17.0.2",
+    "react-modal": "^3.14.3",
+    "redux-devtools-extension": "^2.13.9",
+    "regenerator-runtime": "^0.13.9",
+    "resolve-cwd": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "concurrently": "^6.0.2",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.2.0",
+    "isomorphic-fetch": "^3.0.0",
+    "nodemon": "^2.0.7",
+    "sass": "^1.39.2",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
+    "webpack": "^5.52.1",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^4.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack-dev-server --progress",
+    "start": "node server/routes/server.js",
+    "build": "NODE_ENV=production webpack",
+    "dev": "NODE_ENV=development webpack serve --open",
+    "gulp-prod": "node_modules/.bin/gulp prod",
+    "gulp-dev": "node_modules/.bin/gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ctrace12/Leet-Kids.git"
+  },
+  "author": "Star Nosed Moles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ctrace12/Leet-Kids/issues"
+  },
+  "homepage": "https://github.com/Ctrace12/Leet-Kids#readme"
 }
