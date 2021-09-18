@@ -3,8 +3,7 @@ import { render } from "react-dom";
 import App from '/src/App.jsx';
 import styles from '/styles/styles.scss';
 
-render
-(
+render (
   <App/>,
   document.getElementById('app')
 )
