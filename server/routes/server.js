@@ -7,7 +7,7 @@ const apiRouter = require('../routers/api')
 
 const PORT = 3000;
 
-
+const leetKidsController = require('../controllers/leetKidsController');
 
 //JSON parsers for incoming requests
 app.use(express.json());
@@ -18,10 +18,12 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(express.static(path.resolve(__dirname, '../src')))
 
 
-
-//define route handlers
+// define route handlers
 app.use('/api', apiRouter);
 
+// app.get('/api', (req, res) => {
+//   res.status(200).send('hello')
+// });
 
 //define our catch handler
 app.use((req, res) => res.status(404).send('The page didn\'t load :('));
