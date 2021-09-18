@@ -3,9 +3,11 @@ const express = require('express');
 
 const app = express();
 
-const apiRouter = require('./routers/api')
+const apiRouter = require('../routers/api')
 
 const PORT = 3000;
+
+
 
 //JSON parsers for incoming requests
 app.use(express.json());
@@ -13,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //tentatively create a static handler in case we need it
 
-//app.use(express.static(path.resolve(__dirname, '../src')))
+// app.use(express.static(path.resolve(__dirname, '../src')))
 
 
 
