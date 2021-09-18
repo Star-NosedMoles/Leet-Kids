@@ -33,6 +33,7 @@
     "concurrently": "^6.0.2",
     "cross-env": "^7.0.3",
     "css-loader": "^6.2.0",
+    "file-loader": "^6.2.0",
     "isomorphic-fetch": "^3.0.0",
     "nodemon": "^2.0.7",
     "sass": "^1.39.2",
