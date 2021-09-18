@@ -4,13 +4,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   // dynamic building "npm run dev" & "npm run build"
   mode: process.env.NODE_ENV,
-  entry: path.resolve(__dirname,"./src/index.js"),
+  entry: path.resolve(__dirname, "./src/index.js"),
   output: {
-    path: path.resolve(__dirname,'build'),
+    path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
     publicPath: '/'
   },
-  module:{
+  module: {
     rules: [
       {
         test: /\.jsx?/,
@@ -29,17 +29,21 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: ['file-loader'],
       }
     ]
   },
   devServer: {
     static: {
       //will run your local server from the src files
-      directory: path.join(__dirname,'src')
+      directory: path.join(__dirname, 'src')
     },
-    compress:true,
+    compress: true,
     port: 8080,
-    proxy: {'/api/*':'http://localhost:3000/'}
+    proxy: { '/api/*': 'http://localhost:3000/' }
   },
   plugins: [
     new HtmlWebpackPlugin({
