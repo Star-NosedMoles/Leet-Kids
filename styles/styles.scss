@@ -1,3 +1,46 @@
-*{
-  background-color: rgb(127, 127, 224);
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap');
+
+body{
+  background-color: rgb(174, 104, 104);
+}
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+h1 {
+  font-size: 50px;
+  font-family: Gluten;
+  color: whitesmoke;
+  margin-top: 100px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 20px;
+  font-family: Quicksand;
+  color: whitesmoke;
+  margin-bottom: 20px;
+}
+img {
+  margin: 20px;
+  margin-bottom: 30px;
+}
+
+#homeBtn {
+  margin: 10px;
+  border: 1px solid rgb(210, 232, 210);
+  font-size: 12px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 4px;
+  background-color: rgb(247, 246, 244);
+  font-family: Gluten;
+  color: rgb(59, 72, 63);
 }
