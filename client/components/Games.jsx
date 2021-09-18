@@ -13,21 +13,27 @@ export default function Games(props) {
       axios.get('/api')
       .then(res => {
         console.log(res.data)
-        // console.log(res.data)
-        setPrompts(res.data)
+
+        const cleanResult = res.data.map((el)=>{
+          return el.prompt;
+        })
+        // console.log(cleanResult);
+        setPrompts(cleanResult);
         // console.log(prompts)
       })
+    
+      
 
-  })
+  },[setPrompts])
   
   return (
-    <div>
-      <h2>{props.gameNumber}</h2>
-      <p>{prompts}</p>
+    <div className= "gamePage">
+      <h3>{props.gameNumber}</h3>
+      <p id="prompts">{prompts}</p>
       <input placeholder = "your answer!"></input>   
       {/* <p>{Home.gamename}</p>  */}
       {/* <button onClick={() => setPromptType('game1')}>Get Prompt</button> */}
-      <button>submit</button>
+      <button id="submit">submit</button>
     </div>
   )
 }
