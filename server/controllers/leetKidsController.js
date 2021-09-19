@@ -5,13 +5,14 @@ const leetKidsController = {}
 
 // controller to retrieve questions
 leetKidsController.getQuestions = async (req, res, next) => {
-
-  try{
+  try {
     const game = await models.Game1.find({})
+
+
     res.locals.prompt = game;
     return next();
   }
-  catch{
+  catch {
     next({
       log: 'Express error handler caught error in leetKidsController.getQuestions',
       status: 500,

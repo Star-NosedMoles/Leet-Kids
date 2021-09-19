@@ -8,6 +8,7 @@ export default function Games(props) {
   const [prompts, setPrompts] = useState([]);
   const [level, setLevel] = useState(1);
 
+<<<<<<< HEAD
   function levelUp(value) {
     // console.log(prompts);
     // console.log(value);
@@ -17,9 +18,24 @@ export default function Games(props) {
   }
   //for now, we want to increment our state Level by one for every time Submit is clicked
   //we also want the appropriate prompt to appear on the page depending on the current state of the players level
+=======
+  function levelUp(value){
+    // console.log(prompts);
+    // console.log(value);
+    if(value === prompts[level - 1]){
+      setLevel(prevLevel => prevLevel + 1);
+      document.getElementById('userAnswer').value = ''
+    } else {
+      document.getElementById('userAnswer').value = ''
+    }
+  }
+  //for now, we want to increment our state Level by one for every time Submit is clicked
+    //we also want the appropriate prompt to appear on the page depending on the current state of the players level
+>>>>>>> 9c78fd999df93048ddd99539cbca4afe327df9b8
   useEffect(() => {
     
     // axios.get(`api/${props.gameNumber}`)
+<<<<<<< HEAD
     axios.get(`/api`).then((res) => {
       const cleanResult = res.data.map((el) => {
         if (el.level === level) {
@@ -31,12 +47,26 @@ export default function Games(props) {
       // console.log(prompts)
     });
   }, [prompts, level]);
+=======
+      axios.get(`/api`)
+      .then(res => {
+        const cleanResult = res.data.map((el)=>{
+          if(el.level === level){
+            return el.prompt;
+          }
+        })
+
+        setPrompts(cleanResult);
+      })
+  },[prompts,level])
+>>>>>>> 9c78fd999df93048ddd99539cbca4afe327df9b8
 
   return (
     <div className="gamePage">
       <h3>{props.gameNumber}</h3>
       <h3>{level}</h3>
       <p id="prompts">{prompts}</p>
+<<<<<<< HEAD
       <input id="userAnswer" type="text" placeholder="your answer!"></input>
       <button
         id="submit"
@@ -44,6 +74,10 @@ export default function Games(props) {
       >
         submit
       </button>
+=======
+      <input id = 'userAnswer' type = 'text' placeholder = "your answer!"></input>
+      <button id="submit" onClick={() => levelUp(document.getElementById('userAnswer').value)}>submit</button>
+>>>>>>> 9c78fd999df93048ddd99539cbca4afe327df9b8
     </div>
   );
 }

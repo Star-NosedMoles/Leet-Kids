@@ -48,7 +48,7 @@
     "watch": "webpack-dev-server --progress",
     "start": "node server/routes/server.js",
     "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development webpack serve --open",
+    "dev": "NODE_ENV=development nodemon server/routes/server.js & NODE_ENV=development webpack serve --open",
     "gulp-prod": "node_modules/.bin/gulp prod",
     "gulp-dev": "node_modules/.bin/gulp dev"
   },
