@@ -20,8 +20,8 @@ mongoose.connect(mongoURI, {
   const game1Schema = new Schema ({
     level: Number,
     prompt: String,
-    // example: String,
-    // answer: String
+    hint: String,
+    answer: String
   }, { collection : 'Games1'});
 //, { collection : 'Challenge Questions'}
   const Game1 = mongoose.model('games1', game1Schema);

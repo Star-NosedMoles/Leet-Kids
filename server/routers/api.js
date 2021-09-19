@@ -14,10 +14,14 @@ const router = express.Router();
 
 
 
-router.get('/',leetKidsController.getQuestions, (req, res) => {
-    
-    res.status(200).json(res.locals.prompt)
+router.get("/", leetKidsController.getQuestions, (req, res) => {
+  res.status(200).json(res.locals.prompt);
 });
+
+// router.get("/games2", leetKidsController.getQuestions, (req, res) => {
+//   res.status(200).json(res.locals.prompt);
+// });
+
 // router.get('/', (req, res) => {
 //     res.status(200).send('hello')
 // });
