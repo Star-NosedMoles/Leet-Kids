@@ -4,21 +4,67 @@ const { locals } = require('../routes/server');
 const leetKidsController = {}
 
 // controller to retrieve questions
-leetKidsController.getQuestions = async (req, res, next) => {
+leetKidsController.getQuestions1 = async (req, res, next) => {
   try {
     const game = await models.Game1.find({})
-
-
     res.locals.prompt = game;
     return next();
   }
   catch {
     next({
-      log: 'Express error handler caught error in leetKidsController.getQuestions',
+      log: 'Express error handler caught error in leetKidsController.getQuestions1',
       status: 500,
-      message: { err: 'Express error handler caught error in leetKidsController.getQuestions' },
+      message: { err: 'Express error handler caught error in leetKidsController.getQuestions1' },
     });
   }
 }
+
+leetKidsController.getQuestions2 = async (req, res, next) => {
+  try {
+    const game = await models.Game2.find({});
+    res.locals.prompt = game;
+    return next();
+  } catch {
+    next({
+      log: "Express error handler caught error in leetKidsController.getQuestions2",
+      status: 500,
+      message: {
+        err: "Express error handler caught error in leetKidsController.getQuestions2",
+      },
+    });
+  }
+};
+
+// leetKidsController.getQuestions3 = async (req, res, next) => {
+//   try {
+//     const game = await models.Game3.find({});
+//     res.locals.prompt = game;
+//     return next();
+//   } catch {
+//     next({
+//       log: "Express error handler caught error in leetKidsController.getQuestions",
+//       status: 500,
+//       message: {
+//         err: "Express error handler caught error in leetKidsController.getQuestions",
+//       },
+//     });
+//   }
+// };
+
+// leetKidsController.getQuestions4 = async (req, res, next) => {
+//   try {
+//     const game = await models.Game4.find({});
+//     res.locals.prompt = game;
+//     return next();
+//   } catch {
+//     next({
+//       log: "Express error handler caught error in leetKidsController.getQuestions",
+//       status: 500,
+//       message: {
+//         err: "Express error handler caught error in leetKidsController.getQuestions",
+//       },
+//     });
+//   }
+// };
 
 module.exports = leetKidsController;
