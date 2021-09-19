@@ -7,14 +7,18 @@ export default function Display() {
   const [show, setShow] = useState("home");
   const [gameName, setGameName] = useState('no game')
 
+  function changeState(){
+    setShow("games");
+  }
+
   function changeToHome(){
     setShow("home");
   }
-  
+
   useEffect(() => {
-    console.log('show State changed'+ gameName)
-  },[gameName])
-  
+    console.log('show State changed')
+  },[show])
+
   if(show==="home"){
     return (
       <div>
@@ -63,7 +67,7 @@ export default function Display() {
 
 // constructor(props) {
 //   super(props);
-//   this.state= {};  
+//   this.state= {};
 //   this.showGames = this.showGames.bind(this);
 // }
 
@@ -71,9 +75,9 @@ export default function Display() {
 //     this.setState({
 //         show:'home'
 //     })
-// }  
+// }
 // showGames = () => {
 //     this.setState({
 //         show:'games'
 //     })
-// }  
+// }
