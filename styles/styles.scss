@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
 
 body{
   background-color: rgb(174, 104, 104);
 }
 
 .Home {
+
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
+ 
   
 }
 
@@ -24,17 +28,21 @@ h2 {
   font-size: 20px;
   font-family: Quicksand;
   color: whitesmoke;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
+
 }
-img {
-  margin: 20px;
-  margin-bottom: 30px;
+
+#Mole {
+ 
+  
+  width:40px;
+  height: 40px;
 }
 
 #homeBtn {
   margin: 10px;
   border: 1px solid rgb(210, 232, 210);
-  font-size: 12px;
+  font-size: 14px;
   padding-bottom: 15px;
   padding-top: 15px;
   padding-left: 25px;
@@ -43,4 +51,86 @@ img {
   background-color: rgb(247, 246, 244);
   font-family: Gluten;
   color: rgb(59, 72, 63);
+  width:140px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:7px;
+  
+}
+
+#homeBtnBlocked {
+  margin: 10px;
+  border: 1px solid rgb(210, 232, 210);
+  font-size: 14px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 4px;
+  background-color: rgb(157, 154, 148);
+  font-family: Gluten;
+  color: rgb(59, 72, 63);
+  width:140px;
+  height: 40px;
+}
+
+#MoleInBtn {
+  width:20px;
+  height: 20px;
+}
+
+#backHome {
+  margin-top: 30px;
+  font-family: Amatic SC;
+  font-size: 30px;
+  margin-left: 80%;
+  background-color: transparent;
+  border:0px;
+}
+
+
+#submit {
+  font-family: Amatic SC;
+  font-size: 30px;
+  border-radius: 5px;
+  background-color: green;
+  color: aliceblue;
+  border: 1px solid rgb(24, 106, 24);
+}
+.gamePage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:30px;
+  
+}
+input{
+  font-family: Quicksand;
+  font-size: 15px;
+  border-radius: 5px;
+  padding-left: 10px;
+  width: 400px;
+  height: 30px;
+  background-color: rgb(226, 228, 223);
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+h3 {
+  font-size: 30px;
+  font-family: Gluten;
+  color: rgb(208, 210, 206);
+  margin-top: 70px;
+  margin-bottom: 40px;
+}
+
+#prompts{
+  font-family:Quicksand;
+  color:white;
+  width: 60%;
+  text-align: center;
+  font-weight: bold;
 }
