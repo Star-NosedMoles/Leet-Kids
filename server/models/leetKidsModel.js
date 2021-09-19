@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 // create variable for database link
 const mongoURI = "mongodb+srv://Ctrace12:Artifact12@cluster0.1giyn.mongodb.net/Leet-Kids?retryWrites=true&w=majority";
-
+//import Games.jsx (because my intention is that i want to grab the gameName prop) and i want to use that value as our template literal when referencing our collection
 // make the connection to the database
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
@@ -20,12 +20,25 @@ mongoose.connect(mongoURI, {
   const game1Schema = new Schema ({
     level: Number,
     prompt: String,
-    // example: String,
-    // answer: String
-  }, { collection : 'Games1'});
+    hint: String,
+    answer: String
+  }, { collection : 'Games1' });
 //, { collection : 'Challenge Questions'}
   const Game1 = mongoose.model('games1', game1Schema);
+  // const Game1 = mongoose.model(`${Games.props.gameName}`, game1Schema)
 
+
+  const game2Schema = new Schema(
+    {
+      level: Number,
+      prompt: String,
+      hint: String,
+      answer: String,
+    }, { collection: 'Games2' });
+  //, { collection : 'Challenge Questions'}
+  const Game2 = mongoose.model('games2', game2Schema);
+  
   module.exports = {
     Game1,
+    Game2
   };
