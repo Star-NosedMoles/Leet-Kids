@@ -19,6 +19,10 @@ export default function Display() {
     console.log('show State changed')
   },[show])
 
+  playingWithLevel ((level)=>{
+    console.log(level);
+  })
+
   if(show==="home"){
     return (
       <div>
@@ -58,7 +62,7 @@ export default function Display() {
     return (
         <div>
           <button onClick={changeToHome} id="backHome">Home page</button>
-          <Games gameNumber={gameName}/>
+          <Games gameNumber={gameName} />
         </div>
       )
   }

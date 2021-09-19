@@ -22,6 +22,7 @@ export default function Games(props) {
   //for now, we want to increment our state Level by one for every time Submit is clicked
     //we also want the appropriate prompt to appear on the page depending on the current state of the players level
   useEffect(() => {
+    
     // axios.get(`api/${props.gameNumber}`)
       axios.get(`/api`)
       .then(res => {
