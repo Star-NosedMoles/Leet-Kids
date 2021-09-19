@@ -5,8 +5,11 @@ import img from './images.png';
 
 export default function Display() {
   const [show, setShow] = useState("home");
-  const [gameName, setGameName] = useState('no game')
-
+  const [gameName, setGameName] = useState('no game');
+  // const [playerLevel, setPlayerLevel] = useState(1);
+  // const levelContext = React.createContext()
+  // const level = useContext(levelContext)
+  
   function changeState(){
     setShow("games");
   }
@@ -24,34 +27,31 @@ export default function Display() {
       <div>
         {/* <img src={img} id="Mole"></img> */}
         <div className= "Home">
+          <h1>Learning JavaScript</h1>
+          <h2>with Mole</h2>
 
-        <h1>Learning JavaScript</h1>
-        <h2>with Mole</h2>
-
-         
           <button id= "homeBtn" onClick={()=>{
-            setGameName("games1");
-            setShow('games');
-          } }>Game 1 <img src={img} id="MoleInBtn"></img> </button>          
+              setGameName("games1");
+              setShow('games');
+            } }>Game 1 <img src={img} id="MoleInBtn"></img> </button>          
 
-        <button id= "homeBtnBlocked" onClick={()=>{
-            setGameName("games2");
-            setShow('games');
-          } }>Game 2</button>
+          <button id= "homeBtnBlocked" onClick={()=>{
+              setGameName("games2");
+              setShow('games');
+            } }>Game 2</button>
 
-        <button id= "homeBtnBlocked" onClick={()=>{
-            setGameName("games3");
-            setShow('games');
-          } }>Game 3</button>
+          <button id= "homeBtnBlocked" onClick={()=>{
+              setGameName("games3");
+              setShow('games');
+            } }>Game 3</button>
 
-        <button id= "homeBtnBlocked" onClick={()=>{
-            setGameName("games4");
-            setShow('games');
-          } }>Game 4</button>
+          <button id= "homeBtnBlocked" onClick={()=>{
+              setGameName("games4");
+              setShow('games');
+            } }>Game 4</button>
 
-           
         </div>
-        </div>
+      </div>
         )
         }
     else{
