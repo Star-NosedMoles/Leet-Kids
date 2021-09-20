@@ -19,7 +19,6 @@ export default function Display() {
     console.log(game2Status);
   }
 
-
   function changeState(){
     setShow("games");
   }
@@ -39,6 +38,7 @@ export default function Display() {
         <div className= "Home">
           <h1>Learning JavaScript</h1>
           <h2>with Mole</h2>
+          
 
           <button id= "homeBtn" onClick={()=>{
               setGameName("games1");
@@ -70,26 +70,8 @@ export default function Display() {
     return (
         <div>
           <button onClick={changeToHome} id="backHome">Home page</button>
-          <Games gameNumber={gameName} currentLevel={playerLevel} sendLevel={setPlayerLevel} backHome = {setShow} unlockGame={unlockGame} game2Status={game2Status}/>
+          <Games gameNumber={gameName} currentLevel={playerLevel} sendLevel={setPlayerLevel} backHome = {setShow} unlockGame={unlockGame}/>
         </div>
       )
   }
 }
-
-
-// constructor(props) {
-//   super(props);
-//   this.state= {};
-//   this.showGames = this.showGames.bind(this);
-// }
-
-// componentDidMount() {
-//     this.setState({
-//         show:'home'
-//     })
-// }
-// showGames = () => {
-//     this.setState({
-//         show:'games'
-//     })
-// }

@@ -21,7 +21,9 @@ mongoose.connect(mongoURI, {
     level: Number,
     prompt: String,
     hint: String,
-    answer: String
+    answer: String,
+    name: String,
+    maxTimer: Number
   }, { collection : 'Games1' });
 //, { collection : 'Challenge Questions'}
   const Game1 = mongoose.model('games1', game1Schema);
@@ -34,6 +36,8 @@ mongoose.connect(mongoURI, {
       prompt: String,
       hint: String,
       answer: String,
+      name: String,
+      maxTimer: Number
     }, { collection: 'Games2' });
   //, { collection : 'Challenge Questions'}
   const Game2 = mongoose.model('games2', game2Schema);

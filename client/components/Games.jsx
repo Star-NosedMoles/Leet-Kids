@@ -6,34 +6,38 @@ export default function Games(props) {
   const [prompts, setPrompts] = useState('');
   const [level, setLevel] = useState(props.currentLevel);
   const [gameActive, setGameActive] = useState(false);
-  
+  const [answer, setAnswer] = useState('');
+  const [gameName, setGameName] = useState('');
+  const [hint, setHint] = useState('');
+  const [tempHint, setTempHint] = useState('');
+  const [timer, setTimer] = useState();
+  // const [time,setTime] = useState();
+
   function levelUp(value){
-    if(value === prompts){
+    if(value === answer){
       setLevel(prevLevel => prevLevel + 1);
       document.getElementById('userAnswer').value = ''
     } else {
       document.getElementById('userAnswer').value = ''
     }
   }
-  // useEffect(() => {
-  //   props.playerLevel = level
-  // },[victory])
-
-  //for now, we want to increment our state Level by one for every time Submit is clicked
-  //we also want the appropriate prompt to appear on the page depending on the current state of the players level
-  //component did mount
-  //component did update
-  //component did unmount
   useEffect(() => {
-      // axios.post(`/api/${props.gameNumber}`)
-      axios.get(`/api/${props.gameNumber}`) // "games1"
-        // axios.get(`/api`)
-        // .then((res)=> console.log(res.data))
+      setHint('');
+      // setTimer(timer);
+      axios.get(`/api/${props.gameNumber}`) 
         .then((res) => {
           let cleanResult;
+          let cleanAnswer;
+          let cleanHint;
+          let cleanGameName;
+          let cleanTimer;
           res.data.forEach((el) => {
             if (el.level === level) {
               cleanResult= el.prompt;
+              cleanAnswer= el.answer;
+              cleanHint = el.hint;
+              cleanGameName = el.name;
+              cleanTimer = el.maxTimer;
             }
           })
           if(cleanResult === undefined && gameActive == true){
@@ -47,16 +51,35 @@ export default function Games(props) {
             props.backHome('home');
           }
           else{
+            setTimer(cleanTimer);
+            setAnswer(cleanAnswer);
             setPrompts(cleanResult);
+            setTempHint(cleanHint);
+            setGameName(cleanGameName);
             setGameActive(true);
           } 
         })
   }, [level])
-
   
+  useEffect(()=> {
+    if(timer === 0) props.backHome('home');
+    // console.log(time,timer)
+    // i initialized time to be 0
+    // i added a new state called time
+    // we can add one to this state 
+    // setTimeout(setTime(time => time + .01), 100)
+    setTimer(timer => timer - .5);
+
+  },[timer])
+
+
+
   return (
     <div className="gamePage">
-      <h3>{props.gameNumber}</h3>
+      <h3>{gameName}</h3>
+      <h3>{hint}</h3>
+      <h1>{Math.floor(timer/1000)}</h1>
+      <button onClick={()=> {setHint(tempHint)}}>Hint</button>
       <h3>{level}</h3>
       <p id="prompts">{prompts}</p>
       <input id = 'userAnswer' type = 'text' placeholder = "your answer!"></input>
