@@ -6,7 +6,7 @@ export default function Games(props) {
   // const [level,setLevel] =
   // const [promptType, setPromptType] = useState('game1');
   const [prompts, setPrompts] = useState([]);
-  const [level, setLevel] = useState(1);
+  const [level, setLevel] = useState(props.playerLevel);
   const [victory, setVictory] = useState('');
   
   function levelUp(value){
@@ -15,14 +15,15 @@ export default function Games(props) {
     // console.log(value);
     if(value === prompts[level - 1]){
       setLevel(prevLevel => prevLevel + 1);
+      props.levelFunction(level);
       document.getElementById('userAnswer').value = ''
     } else {
       document.getElementById('userAnswer').value = ''
     }
   }
-  function winCondition()  {
-    setVictory('Congratulations!')
-  }
+  // function winCondition()  {
+  //   setVictory('Congratulations!')
+  // }
   
   //for now, we want to increment our state Level by one for every time Submit is clicked
   //we also want the appropriate prompt to appear on the page depending on the current state of the players level
@@ -30,19 +31,24 @@ export default function Games(props) {
   //component did update
   //component did unmount
   useEffect(() => {
-    
-    // axios.get(`api/${props.gameNumber}`)
-      axios.get(`/api`)
-      .then(res => {
-        const cleanResult = res.data.map((el)=>{
-          if(el.level === level){
-            return el.prompt;
-          }
-        })
-
-        setPrompts(cleanResult);
-      })
-  },[prompts,level])
+      // axios.post(`/api/${props.gameNumber}`)
+      
+      axios.get(`/api/${props.gameNumber}`) // "games1"
+        // axios.get(`/api`)
+        .then((res) => {
+          const cleanResult = res.data.map((el) => {
+            if (el.level === level) {
+              return el.prompt;
+            }
+          });
+          setPrompts(cleanResult);
+          console.log(prompts)
+          // if(prompts[level] === undefined) setPrompts('Game Locked!')
+          //setPrompts(cleanResult);
+          return 'Game Locked!';
+        });
+        if (prompts[prompts.length - 1] !== undefined) {setVictory('Victory')}
+  }, [level])
 
   // useEffect(() => {
     

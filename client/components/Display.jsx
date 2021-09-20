@@ -6,7 +6,7 @@ import img from './images.png';
 export default function Display() {
   const [show, setShow] = useState("home");
   const [gameName, setGameName] = useState('no game');
-  // const [playerLevel, setPlayerLevel] = useState(1);
+  const [playerLevel, setPlayerLevel] = useState();
   // const levelContext = React.createContext()
   // const level = useContext(levelContext)
   
@@ -18,13 +18,14 @@ export default function Display() {
     setShow("home");
   }
 
+  function changeLevel(level){
+    setPlayerLevel(level);
+  }
+
+
   useEffect(() => {
     console.log('show State changed')
   },[show])
-
-  playingWithLevel ((level)=>{
-    console.log(level);
-  })
 
   if(show==="home"){
     return (
@@ -62,7 +63,7 @@ export default function Display() {
     return (
         <div>
           <button onClick={changeToHome} id="backHome">Home page</button>
-          <Games gameNumber={gameName} />
+          <Games gameNumber={gameName} levelFunction = {changeLevel} playerLevel={playerLevel}/>
         </div>
       )
   }
