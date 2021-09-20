@@ -35,36 +35,36 @@ leetKidsController.getQuestions2 = async (req, res, next) => {
   }
 };
 
-// leetKidsController.getQuestions3 = async (req, res, next) => {
-//   try {
-//     const game = await models.Game3.find({});
-//     res.locals.prompt = game;
-//     return next();
-//   } catch {
-//     next({
-//       log: "Express error handler caught error in leetKidsController.getQuestions",
-//       status: 500,
-//       message: {
-//         err: "Express error handler caught error in leetKidsController.getQuestions",
-//       },
-//     });
-//   }
-// };
+leetKidsController.getQuestions3 = async (req, res, next) => {
+  try {
+    const game = await models.Game3.find({});
+    res.locals.prompt = game;
+    return next();
+  } catch {
+    next({
+      log: "Express error handler caught error in leetKidsController.getQuestions3",
+      status: 500,
+      message: {
+        err: "Express error handler caught error in leetKidsController.getQuestions3",
+      },
+    });
+  }
+};
 
-// leetKidsController.getQuestions4 = async (req, res, next) => {
-//   try {
-//     const game = await models.Game4.find({});
-//     res.locals.prompt = game;
-//     return next();
-//   } catch {
-//     next({
-//       log: "Express error handler caught error in leetKidsController.getQuestions",
-//       status: 500,
-//       message: {
-//         err: "Express error handler caught error in leetKidsController.getQuestions",
-//       },
-//     });
-//   }
-// };
+leetKidsController.getQuestions4 = async (req, res, next) => {
+  try {
+    const game = await models.Game4.find({});
+    res.locals.prompt = game;
+    return next();
+  } catch {
+    next({
+      log: "Express error handler caught error in leetKidsController.getQuestions4",
+      status: 500,
+      message: {
+        err: "Express error handler caught error in leetKidsController.getQuestions4",
+      },
+    });
+  }
+};
 
 module.exports = leetKidsController;

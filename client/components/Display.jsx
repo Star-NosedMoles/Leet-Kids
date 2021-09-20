@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import Games from './Games.jsx'
 import imgMole from './moleLeft.png';
 import padLock from './padLock.png';
-
+import moleGif from './moleGif.gif'
 
 export default function Display() {
   const [show, setShow] = useState("home");
@@ -85,12 +85,29 @@ export default function Display() {
       </div>
         )
         }
-    else{
-    return (
-        <div>
-          <button onClick={changeToHome} id="backHome">Home page</button>
-          <Games gameNumber={gameName} currentLevel={playerLevel} sendLevel={setPlayerLevel} backHome = {setShow} unlockGame={unlockGame}/>
+    else if(show==='victory') {
+      return (
+        <div id='moleDiv'>
+          <h1>CONGRATULATIONS!!!</h1>
+          <img id='moleGif' src={moleGif}></img>
         </div>
       )
-  }
+    }
+    else if(show==='finished') {
+      return (
+        <div id='moleDiv'>
+          <h1>Thank you for Playing Leet Kids!</h1>
+          <h1>Created by: Joel Mercedes Darren Connor</h1>
+          <img id='moleGif' src={moleGif}></img><img id='moleGif' src={moleGif}></img><img id='moleGif' src={moleGif}></img>
+        </div>
+      )
+    }
+    else{
+      return (
+          <div>
+            <button onClick={changeToHome} id="backHome">Home page</button>
+            <Games gameNumber={gameName} currentLevel={playerLevel} sendLevel={setPlayerLevel} backHome = {setShow} unlockGame={unlockGame}/>
+          </div>
+        )
+    }
 }
