@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import moleRight from './moleRight.png';
 export default function Games(props) {
   //declaring states 
   const [prompts, setPrompts] = useState('');
@@ -11,8 +11,10 @@ export default function Games(props) {
   const [hint, setHint] = useState('');
   const [tempHint, setTempHint] = useState('');
   const [timer, setTimer] = useState();
+  const [tempTimer, setTempTimer] = useState();
   // const [time,setTime] = useState();
-
+  const [leftPosition, setLeftPosition] = useState(100);
+  const [movingMoley,setMovingMoley] = useState(moleRight)
   function levelUp(value){
     if(value === answer){
       setLevel(prevLevel => prevLevel + 1);
@@ -51,6 +53,7 @@ export default function Games(props) {
             props.backHome('home');
           }
           else{
+            setTempTimer(cleanTimer)
             setTimer(cleanTimer);
             setAnswer(cleanAnswer);
             setPrompts(cleanResult);
@@ -63,27 +66,38 @@ export default function Games(props) {
   
   useEffect(()=> {
     if(timer === 0) props.backHome('home');
-    // console.log(time,timer)
-    // i initialized time to be 0
-    // i added a new state called time
-    // we can add one to this state 
-    // setTimeout(setTime(time => time + .01), 100)
-    setTimer(timer => timer - .5);
-
+    setTimer(timer => timer - .1);
+    // setLeftPosition(left => left + 0.006)
+    // setLeftPosition(prevPosition => )
   },[timer])
 
-
+  // useEffect(() => {
+  //   if (document.getElementById('movingMoley').style.left === '1000px') {
+  //     document.getElementById("movingMoley").style.left = '100px'
+  //   }
+  // },[leftPosition])
 
   return (
+    <div>
+      <div >
+        <img id='movingMoley' src={movingMoley}  style={{left:`${leftPosition}px`}}></img>
+        <h1 id='timer'>{Math.floor(timer/1000)}</h1>
+      </div>
+      
     <div className="gamePage">
       <h3>{gameName}</h3>
-      <h3>{hint}</h3>
-      <h1>{Math.floor(timer/1000)}</h1>
-      <button onClick={()=> {setHint(tempHint)}}>Hint</button>
       <h3>{level}</h3>
       <p id="prompts">{prompts}</p>
+      
+      
       <input id = 'userAnswer' type = 'text' placeholder = "your answer!"></input>
       <button id="submit" onClick={() => levelUp(document.getElementById('userAnswer').value)}>submit</button>
+      <button onClick={()=> {setHint(tempHint)}}>Hint</button>
+      <h3>{hint}</h3>
+      
+    </div>
+
+      {/* style={{marginLeft:leftPosition}} */}
     </div>
   );
 }
