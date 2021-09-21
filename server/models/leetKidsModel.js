@@ -21,7 +21,9 @@ mongoose.connect(mongoURI, {
     level: Number,
     prompt: String,
     hint: String,
-    answer: String
+    answer: String,
+    name: String,
+    maxTimer: Number
   }, { collection : 'Games1' });
 //, { collection : 'Challenge Questions'}
   const Game1 = mongoose.model('games1', game1Schema);
@@ -34,11 +36,39 @@ mongoose.connect(mongoURI, {
       prompt: String,
       hint: String,
       answer: String,
+      name: String,
+      maxTimer: Number
     }, { collection: 'Games2' });
   //, { collection : 'Challenge Questions'}
   const Game2 = mongoose.model('games2', game2Schema);
+
+  const game3Schema = new Schema(
+    {
+      level: Number,
+      prompt: String,
+      hint: String,
+      answer: String,
+      name: String,
+      maxTimer: Number
+    }, { collection: 'Games3' });
+  //, { collection : 'Challenge Questions'}
+  const Game3 = mongoose.model('games3', game3Schema);
+
+  const game4Schema = new Schema(
+    {
+      level: Number,
+      prompt: String,
+      hint: String,
+      answer: String,
+      name: String,
+      maxTimer: Number
+    }, { collection: 'Games4' });
+  //, { collection : 'Challenge Questions'}
+  const Game4 = mongoose.model('games4', game4Schema);
   
   module.exports = {
     Game1,
-    Game2
+    Game2,
+    Game3,
+    Game4
   };

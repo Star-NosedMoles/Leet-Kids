@@ -20,13 +20,13 @@ router.get('/games2', leetKidsController.getQuestions2, (req, res) => {
   res.status(200).json(res.locals.prompt);
 });
 
-// router.get("/games3", leetKidsController.getQuestions, (req, res) => {
-//   res.status(200).json(res.locals.prompt);
-// });
+router.get("/games3", leetKidsController.getQuestions3, (req, res) => {
+  res.status(200).json(res.locals.prompt);
+});
 
-// router.get("/games4", leetKidsController.getQuestions, (req, res) => {
-//   res.status(200).json(res.locals.prompt);
-// });
+router.get("/games4", leetKidsController.getQuestions4, (req, res) => {
+  res.status(200).json(res.locals.prompt);
+});
 
 
 
